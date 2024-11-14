@@ -2,22 +2,29 @@ package com.pluralsight.IPriceable;
 
 import com.pluralsight.order.Order;
 
-public class Chips {
-    private String name;
-    private Order order;
+public class Chips implements IPriceable {
+    private String type;
 
-    public void startOrder() {
-        order = new Order();
+    public Chip(String type) {
+        this.type = type;
     }
 
-    public void addSandwichToOrder(Sandwich sandwich) {
-        order.addSandwich(sandwich);
+    public String getType() {
+        return type;
     }
 
-    public void finishOrder() {
-        order.saveOrderReceipt();
+    @Override
+    public double getPrice() {
+        // Implement chip price logic
+        return 2.5; // example price for chips
     }
 
-    // Getters and setters
+    @Override
+    public String toString() {
+        return "Chip{" +
+                "type='" + type + '\'' +
+                '}';
+    }
 }
+
 

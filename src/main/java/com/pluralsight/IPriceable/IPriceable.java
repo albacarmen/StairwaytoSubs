@@ -1,4 +1,4 @@
-package com.pluralsight.IPriceable;
-
-public class IPriceable {
+public interface IPriceable {
+    double getPrice();
 }
+
