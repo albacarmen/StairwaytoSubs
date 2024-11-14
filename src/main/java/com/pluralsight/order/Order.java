@@ -3,7 +3,7 @@ package com.pluralsight.order;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
-import com.pluralsight.sandwich.Sandwich;
+import com.pluralsight.IPriceable.Sandwich;
 import com.pluralsight.otherproducts.Drink;
 import com.pluralsight.otherproducts.Chip;
 

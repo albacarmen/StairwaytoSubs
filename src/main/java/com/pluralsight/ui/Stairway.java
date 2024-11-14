@@ -1,16 +1,13 @@
 package com.pluralsight.ui;
 
-import com.pluralsight.customer.Customer;
-import com.pluralsight.sandwich.Sandwich;
-import com.pluralsight.otherproducts.Drink;
-import com.pluralsight.otherproducts.Chip;
+import com.pluralsight.IPriceable.Chips;
 
 public class Stairway {
-    private Customer customer;
+    private Chips customer;
     private UserInterface ui;
 
     public Stairway() {
-        this.customer = new Customer();
+        this.customer = new Chips();
         this.ui = new UserInterface();
     }
 

@@ -1,6 +1,6 @@
 package com.pluralsight.sandwich;
 
-import com.pluralsight.sandwich.Sandwich;
+import com.pluralsight.IPriceable.Sandwich;
 
 public class SignatureSandwich extends Sandwich {
     private String name;

@@ -1,9 +1,8 @@
-package com.pluralsight.customer;
+package com.pluralsight.IPriceable;
 
 import com.pluralsight.order.Order;
-import com.pluralsight.sandwich.Sandwich;
 
-public class Customer {
+public class Chips {
     private String name;
     private Order order;
 
