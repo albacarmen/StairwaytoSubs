@@ -4,7 +4,7 @@
 
 This Java console application is designed to streamline the ordering process for a customizable sandwich shop. The application allows users to build a sandwich order by selecting various ingredients, including bread types, toppings, and sauces, and also add drinks and chips. This tool is intended for both customers of a virtual deli and backend administrators who want a seamless way to handle custom orders. The application's purpose is to simplify order management, ensure accurate pricing, and provide a receipt of the final order.
 
-![Class Diagram](path/to/your/class_diagram.png)
+![Untitled diagram-2024-11-14-024453.png](src%2Fmain%2Fresources%2FUntitled%20diagram-2024-11-14-024453.png)
 
 ## User Stories
 
