@@ -6,7 +6,7 @@ public class RegularTopping extends Topping {
 
     @Override
     public double calculatePrice(int size) {
-        // Implement pricing logic for regular toppings 
+        // Implement pricing logic for regular toppings
         return 0.5 * size; // Example: Price increases based on sandwich size
     }
 }
