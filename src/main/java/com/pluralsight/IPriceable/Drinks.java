@@ -1,9 +1,9 @@
 package com.pluralsight.IPriceable;
-public class Drink implements IPriceable {
+public class Drinks implements IPriceable {
     private String size;
     private String flavor;
 
-    public Drink(String size, String flavor) {
+    public Drinks(String size, String flavor) {
         this.size = size;
         this.flavor = flavor;
     }
@@ -34,4 +34,3 @@ public class Drink implements IPriceable {
                 '}';
     }
 }
-

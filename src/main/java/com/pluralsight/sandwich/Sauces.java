@@ -1,8 +1,8 @@
 package com.pluralsight.sandwich;
 
-public class Sauce extends Topping {
+public class Sauces extends Topping {
 
-    public Sauce(String type) {
+    public Sauces(String type) {
         super(type);
     }
 
@@ -12,4 +12,3 @@ public class Sauce extends Topping {
         return 0.3 * size; // Example: Price increases based on sandwich size
     }
 }
-
