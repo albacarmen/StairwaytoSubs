@@ -4,13 +4,13 @@ import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 import com.pluralsight.IPriceable.Sandwich;
-import com.pluralsight.otherproducts.Drink;
-import com.pluralsight.otherproducts.Chip;
+import com.pluralsight.IPriceable.Drinks;
+import com.pluralsight.IPriceable.Chips;
 
 public class Order {
     private List<Sandwich> sandwiches = new ArrayList<>();
-    private List<Drink> drinks = new ArrayList<>();
-    private List<Chip> chips = new ArrayList<>();
+    private List<Drinks> drinks = new ArrayList<>();
+    private List<Chips> chips = new ArrayList<>();
     private double totalCost;
     private LocalDateTime orderDate;
 
@@ -22,11 +22,11 @@ public class Order {
         sandwiches.remove(sandwich);
     }
 
-    public void pourDrink(Drink drink) {
+    public void pourDrink(Drinks drink) {
         drinks.add(drink);
     }
 
-    public void addChips(Chip chip) {
+    public void addChips(Chips chip) {
         chips.add(chip);
     }
 
