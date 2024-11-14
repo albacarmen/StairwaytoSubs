@@ -5,8 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="717f0600-e2cc-402e-9e72-40bffed981bc" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/pluralsight/order/Order.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/pluralsight/order/Order.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/pluralsight/order/OrderFileManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/pluralsight/order/OrderFileManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/pluralsight/IPriceable/Drinks.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/pluralsight/IPriceable/Drinks.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
