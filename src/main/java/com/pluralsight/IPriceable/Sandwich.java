@@ -3,29 +3,57 @@ package com.pluralsight.IPriceable;
 import java.util.List;
 
 import com.pluralsight.sandwich.Topping;
-import com.pluralsight.topping.Topping;
 
-public abstract class Sandwich {
-    private Size size;
-    private BreadType breadType;
+
+
+public class Sandwich implements IPriceable {
+    private String bread;
+    private int size;
     private List<Topping> toppings;
     private boolean isToasted;
 
-    public void topUp(Topping topping) {
-        toppings.add(topping);
+    public Sandwich(String bread, int size, List<Topping> toppings, boolean isToasted) {
+        this.bread = bread;
+        this.size = size;
+        this.toppings = toppings;
+        this.isToasted = isToasted;
     }
 
-    public void dropTopping(Topping topping) {
-        toppings.remove(topping);
+    public String getBread() {
+        return bread;
     }
 
-    public abstract double crunchNumbers();
-
-    public String getSummary() {
-        // Construct and return sandwich details
-        return "Sandwich summary";
+    public int getSize() {
+        return size;
     }
 
-    // Getters and setters
+    public List<Topping> getToppings() {
+        return toppings;
+    }
+
+    public boolean isToasted() {
+        return isToasted;
+    }
+
+    @Override
+    public double getPrice() {
+
+        double price = 5.0; // base price
+        for (Topping topping : toppings) {
+            price += topping.calculatePrice(size);
+        }
+        return price;
+    }
+
+    @Override
+    public String toString() {
+        return "Sandwich{" +
+                "bread='" + bread + '\'' +
+                ", size=" + size +
+                ", toppings=" + toppings +
+                ", isToasted=" + isToasted +
+                '}';
+    }
 }
+
 
