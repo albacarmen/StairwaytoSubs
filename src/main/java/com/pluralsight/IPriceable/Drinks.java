@@ -18,7 +18,7 @@ public class Drink implements IPriceable {
 
     @Override
     public double getPrice() {
-        // Implement drink price logic 
+        // Implement drink price logic
         double price = 1.5; // base price
         if (size.equals("Large")) {
             price += 1.0; // extra charge for large size
