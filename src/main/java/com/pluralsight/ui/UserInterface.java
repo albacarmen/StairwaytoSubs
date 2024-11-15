@@ -1,6 +1,8 @@
 package com.pluralsight.ui;
 import com.pluralsight.IPriceable.Sandwich;
 import com.pluralsight.order.Order;
+import com.pluralsight.order.OrderFileManager;
+
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
@@ -435,10 +437,26 @@ public class UserInterface {
     }
 
 
-    public void checkoutScreen() {
-        // Show final order and checkout
-        System.out.println("Your final order is: " + order.toString());
-        order.checkout();
+    public void displayCheckoutScreen() {
+        System.out.println("Checkout Summary:");
+        String orderSummary = currentOrder.newOrderSummary();
+        System.out.println(orderSummary);
+
+        System.out.print("Confirm Order? (Y or N): ");
+        String confirm = scanner.nextLine().trim().toLowerCase();
+
+        if (confirm.equalsIgnoreCase("y")) {
+            OrderFileManager.saveReceipt(orderSummary);
+            System.out.println("Thank you for your order, " + customerName + "!");
+            System.out.println("Party on, " + customerName + "!");
+            displayMainScreen();
+        } else if (confirm.equalsIgnoreCase("n")) {
+            System.out.println("Order Canceled. No Worries.");
+            OrderScreen();
+        } else {
+            System.out.println("ERROR: Invalid Choice.");
+            displayCheckoutScreen();
+        }
     }
-}
+
 

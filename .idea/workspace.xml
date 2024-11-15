@@ -5,6 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="717f0600-e2cc-402e-9e72-40bffed981bc" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/pluralsight/IPriceable/Chip.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/pluralsight/IPriceable/Chip.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/pluralsight/main/StanMikita.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/pluralsight/main/StanMikita.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/pluralsight/ui/UserInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/pluralsight/ui/UserInterface.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -52,7 +55,14 @@
       <recent name="C:\Users\Student\Desktop\Pluralsight\Capstones\StairwaytoSubs\src\main\resources" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Application.StanMikita (1)">
+    <configuration name="StanMikita (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="StanMikita" />
+      <module name="StanMikitasSandwiches" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="StanMikita" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.pluralsight.main.StanMikita" />
       <module name="StanMikitasSandwiches" />
@@ -81,6 +91,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.StanMikita (1)" />
         <item itemvalue="Application.StanMikita" />
       </list>
     </recent_temporary>
@@ -103,6 +114,15 @@
           <url>file://$PROJECT_DIR$/src/main/java/com/pluralsight/IPriceable/IPriceable.java</url>
           <line>4</line>
           <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/main/java/com/pluralsight/main/StanMikita.java</url>
+          <line>1</line>
+          <properties class="StanMikita" method="main">
+            <option name="EMULATED" value="true" />
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="2" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

@@ -14,7 +14,7 @@ public class Chip implements IPriceable {
 
     private static final String[] CHIP_TYPES = {"Shrimp Chips", "Plantains"};
 
-    public Chip0(String type, int size) {
+    public Chip(String type, int size) {
         this.type = type;
         this.size = size;
     }
