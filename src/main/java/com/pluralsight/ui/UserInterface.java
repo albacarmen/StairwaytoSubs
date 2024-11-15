@@ -411,11 +411,29 @@ public class UserInterface {
 
 
 
-    public void addChipScreen() {
-        // Allow user to select chips
-        System.out.println("Add chips to your order.");
-        // Logic for adding chips
+    public String chooseChips() {
+        // Chip type options
+        System.out.println("SELECT YOUR CHIPS:");
+        System.out.println("1. Shrimp Chips");
+        System.out.println("2. Plantains");
+        System.out.println("PRESS '0' TO END SELECTION");
+
+        String chipChoice;
+        int typeChoice = scanner.nextInt();
+        scanner.nextLine();  // Clear the buffer
+
+        switch (typeChoice) {
+            case 1 -> chipChoice = "Shrimp Chips";
+            case 2 -> chipChoice = "Plantains";
+            default -> {
+                System.out.println("ERROR: Invalid Choice.");
+                chipChoice = "Shrimp Chips";  // Default to "Shrimp Chips"
+            }
+        }
+
+        return chipChoice;
     }
+
 
     public void checkoutScreen() {
         // Show final order and checkout
