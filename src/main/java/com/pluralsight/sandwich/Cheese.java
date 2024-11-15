@@ -8,8 +8,9 @@ public class Cheese extends PremiumTopping {
 
     @Override
     public double calculatePrice(int size) {
-        // logic for cheese
-        return 1.5 * size; //  premium price
+        // Price calculation based on the size of the sandwich
+        return 0.75 * (size / 4.0);
     }
 }
+
 

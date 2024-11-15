@@ -1,30 +1,19 @@
-package IPriceable;
+package com.pluralsight.IPriceable;
 
-import com.pluralsight.sandwich.Cheese;
-import com.pluralsight.sandwich.Sauces;
-import com.pluralsight.sandwich.Meat;
-import com.pluralsight.sandwich.RegularTopping;
-import com.pluralsight.sandwich.Sauces;
-
+import com.pluralsight.sandwich.Topping;
 import java.util.List;
 
 public class Sandwich implements IPriceable {
     private String bread;
-    private int size;
-    private List<Meat> meats;
-    private List<Sauces> sauces;
-    private List<RegularTopping> regularToppings;
-    private List<Cheese> cheeses;
+    private String size; // "Mini", "Regular", "Giant"
+    private List<Topping> toppings;
     private boolean isToasted;
 
-    public Sandwich(String bread, int size, List<Meat> meats, List<Sauce> sauces,
-                    List<RegularTopping> regularToppings, List<Cheese> cheeses, boolean isToasted) {
+    // Constructor
+    public Sandwich(String bread, String size, List<Topping> toppings, boolean isToasted) {
         this.bread = bread;
         this.size = size;
-        this.meats = meats;
-        this.sauces = sauces;
-        this.regularToppings = regularToppings;
-        this.cheeses = cheeses;
+        this.toppings = toppings;
         this.isToasted = isToasted;
     }
 
@@ -32,50 +21,56 @@ public class Sandwich implements IPriceable {
         return bread;
     }
 
-    public int getSize() {
+    public String getSize() {
         return size;
     }
 
-    public List<Meat> getMeats() {
-        return meats;
-    }
-
-    public List<Sauce> getSauces() {
-        return sauces;
-    }
-
-    public List<RegularTopping> getRegularToppings() {
-        return regularToppings;
-    }
-
-    public List<Cheese> getCheeses() {
-        return cheeses;
+    public List<Topping> getToppings() {
+        return toppings;
     }
 
     public boolean isToasted() {
         return isToasted;
     }
-}
 
-    @Override
-    public double getPrice() {
-
-        double price = 19.0; // base price
-        for (Topping topping : toppings) {
-            price += topping.calculatePrice(size);
+    // Price based on sandwich size
+    private double sandwichPriceSize() {
+        switch (size) {
+            case "Mini":
+                return 9.00;  // Mini sandwich price
+            case "Regular":
+                return 15.00; // Regular sandwich price
+            case "Giant":
+                return 19.00; // Giant sandwich price
+            default:
+                return 15.00; // Default to Regular size if no valid size
         }
-        return price;
     }
 
+    // sandwich's price including toppings
+    @Override
+    public double getPrice() {
+        double totalPrice = sandwichPriceSize();
+
+        // Add price of toppings
+        for (Topping topping : toppings) {
+            totalPrice += topping.calculatePrice(size);
+        }
+
+        return totalPrice;
+    }
+
+    // String representation of the sandwich for displaying
     @Override
     public String toString() {
         return "Sandwich{" +
                 "bread='" + bread + '\'' +
-                ", size=" + size +
+                ", size='" + size + '\'' +
                 ", toppings=" + toppings +
                 ", isToasted=" + isToasted +
                 '}';
     }
 }
+
 
 
