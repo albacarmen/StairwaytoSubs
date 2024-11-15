@@ -1,21 +1,20 @@
 package com.pluralsight.sandwich;
 
+import com.pluralsight.IPriceable.Sandwich;
 import java.util.List;
 
 public class SignatureSandwich extends Sandwich {
-    private String name; // Name of the signature sandwich
+    private String name;
 
-    // Constructor for creating a signature sandwich
     public SignatureSandwich(String name, String bread, int size, List<Meat> meats, List<Sauce> sauces, List<RegularTopping> regularToppings, List<Cheese> cheeses, boolean isToasted) {
-        super(bread, size, meats, sauces, regularToppings, cheeses, isToasted); // Initialize the base sandwich
-        this.name = name; // Set the name of the signature sandwich
+        super(bread, size, meats, sauces, regularToppings, cheeses, isToasted);
+        this.name = name;
     }
 
     @Override
     public double calculatePrice() {
-        double price = super.calculatePrice(); // base price from Sandwich
+        double price = super.calculatePrice();
 
-        // Add custom price for special signature sandwiches
         if ("Party On, The Fusion Special".equals(name)) {
             price += 5.00; // Special price for this fusion sandwich
         }
@@ -24,7 +23,7 @@ public class SignatureSandwich extends Sandwich {
     }
 
     public String getName() {
-        return name; // Get the name of the signature sandwich
+        return name;
     }
 
     @Override
@@ -41,6 +40,7 @@ public class SignatureSandwich extends Sandwich {
                 '}';
     }
 }
+
 
 
 
