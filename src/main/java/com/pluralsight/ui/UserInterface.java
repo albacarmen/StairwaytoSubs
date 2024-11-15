@@ -1,13 +1,8 @@
 package com.pluralsight.ui;
-import com.pluralsight.IPriceable.Chip;
-import com.pluralsight.IPriceable.Drink;
-import com.pluralsight.IPriceable.Sandwich;
+import com.pluralsight.IPriceable.*;
 import com.pluralsight.order.Order;
 import com.pluralsight.order.OrderFileManager;
-import com.pluralsight.sandwich.Cheese;
-import com.pluralsight.sandwich.Meat;
-import com.pluralsight.sandwich.RegularTopping;
-import com.pluralsight.sandwich.Sauce;
+import com.pluralsight.sandwich.*;
 
 import java.util.Scanner;
 import java.util.ArrayList;
@@ -84,12 +79,11 @@ public class UserInterface {
 
         while (continueOrder) {
             System.out.println("\nSTAN MIKITA'S ORDER SCREEN:");
-            System.out.println("1. Build Your Epic Sandwich");
+            System.out.println("1. Build an Epic Sandwich");
             System.out.println("2. Pick a Flavorful Drink");
             System.out.println("3. Add Crispy Chips");
             System.out.println("4. Checkout, already?");
             System.out.println("5. Cancel Your Order (Abort Mission)");
-            System.out.println("6. Add Signature Sandwich"); // Added option for Signature Sandwich
             System.out.print("What's your next move? ");
 
             var choice = getUserInput();  // Reusing the getUserInput method for consistency.
@@ -108,17 +102,13 @@ public class UserInterface {
                     break;
 
                 case 4:
-                    displayCheckoutScreen();
+                    checkout();
                     continueOrder = false;
                     break;
 
                 case 5:
                     cancelOrder();
                     continueOrder = false;
-                    break;
-
-                case 6:
-                    selectSignatureSandwich();  // Add Signature Sandwich
                     break;
 
                 default:
@@ -141,26 +131,37 @@ public class UserInterface {
     public void addSandwich() {
         System.out.println("\n** Add Your Sandwich **");
         System.out.println("1. Create a Custom Sandwich");
-        System.out.println("2. Choose a Signature Sandwich (Premium)");
+        System.out.println("2. Choose a Signature Sandwich");
 
-        System.out.print("Enter choice (1 or 2): ");
-        int choice = scanner.nextInt();
-        scanner.nextLine();  // Clear the buffer
+        while (true) {
+            System.out.print("Enter choice (1 or 2): ");
 
-        if (choice == 1) {
-            createCustomSandwich();
-        } else if (choice == 2) {
-            selectSignatureSandwich();
-        } else {
-            System.out.println("Invalid choice. Returning to the order screen.");
+            var choice = scanner.nextInt();
+            scanner.nextLine();  // Clear the buffer
+
+            switch (choice) {
+                case 1:
+                    addCustomSandwich();
+                    break;
+
+                case 2:
+                    addSignatureSandwich();
+                    break;
+
+                default:
+                    System.out.println("'" + choice + "' is not a valid choice!");
+                    continue;
+            }
+
+            break;
         }
     }
 
-    private void createCustomSandwich() {
+    private void addCustomSandwich() {
         System.out.println("\n** Add Your Custom Sandwich **");
 
         // Select bread type
-        String bread = selectBread();
+        var bread = chooseBread();
 
         // Select sandwich size
         var size = selectSize();
@@ -175,41 +176,55 @@ public class UserInterface {
         boolean isToasted = selectToasting();
 
         // Create the sandwich and add to the order
-        Sandwich newSandwich = new Sandwich(bread, size, meats, sauces, otherToppings, cheeses, isToasted);
-        order.addItem(newSandwich);  // Assuming addSandwich() is defined in the Order class
+        var sandwich = new CustomSandwich(bread, size, meats, sauces, otherToppings, cheeses, isToasted);
+        order.addItem(sandwich);  // Assuming addSandwich() is defined in the Order class
 
         System.out.println("\nSandwich added to your order!");
-        System.out.println(newSandwich);  // Display the sandwich details
+        System.out.println(sandwich);  // Display the sandwich details
     }
 
-    private void selectSignatureSandwich() {
+    private void addSignatureSandwich() {
         System.out.println("\nSelect your signature sandwich (premium):");
-        System.out.println("1. Latin Fusion");
-        System.out.println("2. Asian Delight");
+        System.out.println("1. Asian Delight");
+        System.out.println("2. Latin Experience");
+        System.out.println("3. Turbo Fusion Ultimax");
 
-        int choice = scanner.nextInt();
-        scanner.nextLine();  // Clear the buffer
+        var sandwich = (Sandwich)null;
 
-        Sandwich signatureSandwich = null;
-        if (choice == 1) {
-            signatureSandwich = new Sandwich("Telera", 2,
-                    List.of(new Meat("Carnitas")), List.of(new Sauce("Chipotle Mayo")),
-                    List.of(new RegularTopping("Avocado"), new RegularTopping("Cilantro Lime Crema")), List.of(new Cheese("Queso Fresco")), false);
-        } else if (choice == 2) {
-            signatureSandwich = new Sandwich("Banh Mi", 2,
-                    List.of(new Meat("Korean BBQ Beef")), List.of(new Sauce("Hoisin Sauce"), new Sauce("Sriracha")),
-                    List.of(new RegularTopping("Bean Sprouts")), List.of(new Cheese("Kimchi Cheddar")), false);
-        } else {
-            System.out.println("Invalid choice.");
-            return;
+        while (true) {
+            System.out.print("Enter choice: ");
+
+            var choice = scanner.nextInt();
+            scanner.nextLine();  // Clear the buffer
+
+            switch (choice) {
+                case 1:
+                    sandwich = new AsianSandwich();
+                    break;
+
+                case 2:
+                    sandwich = new LatinSandwich();
+                    break;
+
+                case 3:
+                    sandwich = new FusionSandwich();
+                    break;
+
+                default:
+                    System.out.println("'' is not a valid choice!");
+                    continue;
+            }
+
+            break;
         }
 
-        order.addItem(signatureSandwich);
+        order.addItem(sandwich);
         System.out.println("Signature sandwich added!");
+        System.out.println(sandwich);
     }
 
-    private String selectBread() {
-        return selectOption(
+    private Bread chooseBread() {
+        var type = selectOption(
                 "Select Your Bread:",
                 "Telera",
                 "Bao",
@@ -217,6 +232,9 @@ public class UserInterface {
                 "Bolillo",
                 "Arepa"
         );
+        var bread = new Bread(type);
+
+        return bread;
     }
 
     private int selectSize() {
@@ -225,7 +243,7 @@ public class UserInterface {
 
         while (true) {
             var optionText = selectOption(
-                    "Select Your Sandwich Size:",
+                    "Select Your Size:",
                     "Mini",
                     "Regular",
                     "Giant"
@@ -422,7 +440,7 @@ public class UserInterface {
         return chips;
     }
 
-    public void displayCheckoutScreen() {
+    public void checkout() {
         System.out.println(order);
 
         while (true) {

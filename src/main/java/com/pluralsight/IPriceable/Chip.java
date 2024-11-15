@@ -26,6 +26,7 @@ public class Chip implements IPriceable {
         text.append("Chips:");
         text.append("\n\tType: " + type);
         text.append("\n\tSize: " + getSizeString());
+        text.append("\n\tPrice: $" + calculatePrice());
         text.append("\n");
 
         return text.toString();

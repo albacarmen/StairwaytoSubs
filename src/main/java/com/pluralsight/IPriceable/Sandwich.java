@@ -1,35 +1,31 @@
 package com.pluralsight.IPriceable;
 
-import com.pluralsight.sandwich.Topping;
-import com.pluralsight.sandwich.Meat;
-import com.pluralsight.sandwich.Sauce;
-import com.pluralsight.sandwich.Cheese;
-import com.pluralsight.sandwich.RegularTopping;
+import com.pluralsight.sandwich.*;
 
 
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class Sandwich implements IPriceable {
-    private String bread;
-    private int size; // "Mini", "Regular", "Giant"
-    private List<Topping> toppings;
-    private List<Meat> meats;
-    private List<Sauce> sauces;
-    private List<Cheese> cheeses;
-    private boolean isToasted;
+public abstract class Sandwich implements IPriceable {
+    protected Bread bread;
+    protected int size;
+    protected List<RegularTopping> toppings;
+    protected List<Meat> meats;
+    protected List<Sauce> sauces;
+    protected List<Cheese> cheeses;
+    protected boolean isToasted;
 
-    public Sandwich(String bread, int size, List<Meat> meats, List<Sauce> sauces, List<RegularTopping> toppings, List<Cheese> cheeses, boolean isToasted) {
+    public Sandwich(Bread bread, int size, List<Meat> meats, List<Sauce> sauces, List<RegularTopping> toppings, List<Cheese> cheeses, boolean isToasted) {
         this.bread = bread;
         this.size = size;
-        this.toppings = toppings.stream().map(t -> (Topping) t).collect(Collectors.toList());
+        this.toppings = toppings;
         this.meats = meats;
         this.sauces = sauces;
         this.cheeses = cheeses;
         this.isToasted = isToasted;
     }
 
-    public String getBread() {
+    public Bread getBread() {
         return bread;
     }
 
@@ -53,7 +49,7 @@ public class Sandwich implements IPriceable {
         }
     }
 
-    public List<Topping> getToppings() {
+    public List<RegularTopping> getToppings() {
         return toppings;
     }
 
@@ -104,6 +100,7 @@ public class Sandwich implements IPriceable {
     public double calculatePrice() {
 
         return sandwichPriceSize()
+                + bread.calculatePrice()
                 + meats.stream().mapToDouble(meat -> meat.calculatePrice()).sum()
                 + sauces.stream().mapToDouble(sauce -> sauce.calculatePrice()).sum()
                 + cheeses.stream().mapToDouble(cheese -> cheese.calculatePrice()).sum()
@@ -133,9 +130,9 @@ public class Sandwich implements IPriceable {
         text.append(getToppingText("Sauces", sauces));
         text.append(getToppingText("Toppings", toppings));
         text.append("\n\tIs toasted: " + isToasted);
-        text.append("\n\n\tPrice: " + calculatePrice());
+        text.append("\n\n\tPrice: $" + calculatePrice());
         text.append("\n");
-        
+
         return text.toString();
     }
 }

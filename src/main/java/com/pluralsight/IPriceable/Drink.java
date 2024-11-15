@@ -27,11 +27,11 @@ public class Drink implements IPriceable {
         text.append("Drink:");
         text.append("\n\tFlavor: " + flavor);
         text.append("\n\tSize: " + getSizeString());
+        text.append("\n\tPrice: $" + calculatePrice());
         text.append("\n");
 
         return text.toString();
     }
-
 
     @Override
     public double calculatePrice() {

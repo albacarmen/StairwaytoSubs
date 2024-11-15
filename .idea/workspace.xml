@@ -5,10 +5,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="717f0600-e2cc-402e-9e72-40bffed981bc" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/pluralsight/IPriceable/AsianSandwich.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/pluralsight/IPriceable/CustomSandwich.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/pluralsight/IPriceable/FusionSandwich.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/pluralsight/IPriceable/LatinSandwich.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/pluralsight/IPriceable/Chip.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/pluralsight/IPriceable/Chip.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/pluralsight/IPriceable/Drink.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/pluralsight/IPriceable/Drink.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/pluralsight/IPriceable/Sandwich.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/pluralsight/IPriceable/Sandwich.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/pluralsight/order/Order.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/pluralsight/order/Order.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/pluralsight/sandwich/SignatureSandwich.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/pluralsight/ui/UserInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/pluralsight/ui/UserInterface.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -35,7 +41,9 @@
     </option>
   </component>
   <component name="ProjectId" id="2oWfpdT2W0xNmTu0ye8EqFVlWgq" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -107,6 +115,17 @@
       <updated>1730990439097</updated>
     </task>
     <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
