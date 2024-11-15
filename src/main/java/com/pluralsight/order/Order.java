@@ -35,6 +35,11 @@ public class Order {
         return "Order Summary:\n" + itemsSummary + "\nTotal: $" + getTotalPrice();
     }
 
+    public void finalizeOrder() {
+        String summary = getOrderSummary();
+        OrderFileManager.saveReceipt(summary);
+    }
+
     public List<IPriceable> getItems() {
         return items;
     }

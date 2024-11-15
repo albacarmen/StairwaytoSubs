@@ -2,17 +2,23 @@ package com.pluralsight.order;
 
 import java.io.FileWriter;
 import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 public class OrderFileManager {
 
     public void saveReceipt(Order order) {
-        try (FileWriter writer = new FileWriter("receipt.txt")) {
+        String timestamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
+        String filename = "receipt_" + timestamp + ".txt";
+
+        try (FileWriter writer = new FileWriter(filename)) {
             writer.write(order.toString());
-            writer.write("\nTotal: " + order.calculatePrice());
-            System.out.println("Receipt saved successfully.");
+            writer.write("\nTotal: " + order.getTotalPrice());  // Ensure `getTotalPrice()` in `Order` class
+            System.out.println("Receipt saved successfully as " + filename);
         } catch (IOException e) {
             System.out.println("Error saving receipt: " + e.getMessage());
         }
     }
 }
+
 
