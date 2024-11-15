@@ -7,44 +7,39 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class Order {
-    private List<IPriceable> items;  // List
+    private List<IPriceable> items;
 
-    // Constructor to initialize the order with an empty list of items
     public Order() {
         this.items = new ArrayList<>();
     }
 
-    // Adding the goods
-    public void addItem(IPriceable item) {
-        items.add(item);
+    public void addItem(IPriceable orderItem) {
+        items.add(orderItem);
     }
 
-    // Removing yucky stuff
-    public void removeItem(IPriceable item) {
-        items.remove(item);
+    public void removeItem(IPriceable orderItem) {
+        items.remove(orderItem);
     }
 
-    // Calculate the total price of the order
     public BigDecimal getTotalPrice() {
         return items.stream()
                 .map(IPriceable::calculatePrice)
                 .reduce(BigDecimal.ZERO, BigDecimal::add);
     }
 
-    //  using streams and lambdas
     public String getOrderSummary() {
         String itemsSummary = items.stream()
-                .map(item -> item.toString() + " - $" + item.calculatePrice())  // Convert each item to a string with price
-                .collect(Collectors.joining("\n"));  // Join all items
+                .map(orderItem -> orderItem.toString() + " - $" + orderItem.calculatePrice())
+                .collect(Collectors.joining("\n"));
 
         return "Order Summary:\n" + itemsSummary + "\nTotal: $" + getTotalPrice();
     }
 
-    // list of items in the order
     public List<IPriceable> getItems() {
         return items;
     }
 }
+
 
 
 

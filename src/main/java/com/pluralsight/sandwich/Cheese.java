@@ -1,6 +1,6 @@
 package com.pluralsight.sandwich;
 
-public class Cheese extends PremiumTopping {
+public abstract class Cheese extends PremiumTopping {
 
     public Cheese(String type) {
         super(type);
