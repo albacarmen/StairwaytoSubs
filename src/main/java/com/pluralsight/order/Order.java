@@ -24,7 +24,7 @@ public class Order {
         items.remove(item);
     }
 
-    // Calculate the total price of the order 
+    // Calculate the total price of the order
     public BigDecimal getTotalPrice() {
         return items.stream()
                 .map(IPriceable::calculatePrice)
