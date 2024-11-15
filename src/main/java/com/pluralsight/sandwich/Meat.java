@@ -3,22 +3,27 @@ package com.pluralsight.sandwich;
 public class Meat extends PremiumTopping {
 
     public Meat(String type) {
-        super(type);
+        super(type, 2);
+    }
+
+    public Meat(String type, int size) {
+        super(type, size);
     }
 
     @Override
-    public double calculatePrice(String size) {
+    public double calculatePrice() {
         switch (size) {
-            case "Mini":
+            case 1:
                 return 1.00;  // small topping
-            case "Regular":
+            case 2:
                 return 1.50;  // standard topping
-            case "Giant":
+            case 3:
                 return 2.00;  // larger topping
             default:
-                return 1.50;  // Default price
+                return 0.0;
         }
     }
 }
+
 
 

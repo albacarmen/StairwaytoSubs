@@ -1,16 +1,16 @@
+package com.pluralsight.main;
 
-
-
-
-
+import java.util.Scanner;
+import com.pluralsight.ui.UserInterface;
 
 public class StanMikita {
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-        UserInterface ui = new UserInterface(scanner);
-        ui.homeScreen();
+        var ui = new UserInterface();
+        ui.homeScreen();  // method exists in UserInterface class
     }
 }
+
+
 
 
 

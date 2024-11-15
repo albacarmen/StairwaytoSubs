@@ -1,15 +1,15 @@
 package com.pluralsight.IPriceable;
 
-import java.math.BigDecimal;
+
 
 public class Chip implements IPriceable {
     private String type;  // "Shrimp Chips" (Asian), "Plantains" (Latin American)
     private int size;     // 1: Mini, 2: Regular, 3: Giant
 
     // Price mapping
-    private static final BigDecimal[][] CHIP_PRICES = {
-            {new BigDecimal("1.75"), new BigDecimal("3.50"), new BigDecimal("5.25")}, // Shrimp Chips
-            {new BigDecimal("1.50"), new BigDecimal("3.00"), new BigDecimal("4.50")}, // Plantains
+    private static final double[][] CHIP_PRICES = {
+            {1.75, 3.50, 5.25}, // Shrimp Chips
+            {1.50, 3.00, 4.50}, // Plantains
     };
 
     private static final String[] CHIP_TYPES = {"Shrimp Chips", "Plantains"};
@@ -25,9 +25,9 @@ public class Chip implements IPriceable {
     }
 
     @Override
-    public BigDecimal calculatePrice() {
+    public double calculatePrice() {
         int typeIndex = getTypeIndex(type);
-        if (typeIndex == -1) return BigDecimal.ZERO;
+        if (typeIndex == -1) return 0.0;
         return CHIP_PRICES[typeIndex][size - 1];
     }
 

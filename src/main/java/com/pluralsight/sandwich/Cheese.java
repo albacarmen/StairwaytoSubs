@@ -1,22 +1,23 @@
 package com.pluralsight.sandwich;
 
-public abstract class Cheese extends PremiumTopping {
+public class Cheese extends PremiumTopping {
 
-    public Cheese(String type) {
-        super(type);
+    public Cheese(String type) { super(type, 2); }
+    public Cheese(String type, int size) {
+        super(type, size);
     }
 
     @Override
-    public double calculatePrice(String size) {
+    public double calculatePrice() {
         switch (size) {
-            case "Mini":
+            case 1:
                 return 0.50;  // Small topping 4 Mini
-            case "Regular":
+            case 2:
                 return 0.75;  // Standard topping 4 Regular
-            case "Giant":
+            case 3:
                 return 1.00;  // Larger topping 4 Giant
             default:
-                return 0.75;  // Default price
+                return 0.0;
         }
     }
 }

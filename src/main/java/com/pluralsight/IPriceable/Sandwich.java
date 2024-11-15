@@ -5,22 +5,24 @@ import com.pluralsight.sandwich.Meat;
 import com.pluralsight.sandwich.Sauce;
 import com.pluralsight.sandwich.Cheese;
 import com.pluralsight.sandwich.RegularTopping;
+
+
 import java.util.List;
 import java.util.stream.Collectors;
 
 public class Sandwich implements IPriceable {
     private String bread;
-    private String size;
+    private int size; // "Mini", "Regular", "Giant"
     private List<Topping> toppings;
     private List<Meat> meats;
     private List<Sauce> sauces;
     private List<Cheese> cheeses;
     private boolean isToasted;
 
-    public Sandwich(String bread, int size, List<Meat> toppings, List<Sauce> meats, List<RegularTopping> sauces, List<Cheese> cheeses, boolean isToasted) {
+    public Sandwich(String bread, int size, List<Meat> meats, List<Sauce> sauces, List<RegularTopping> toppings, List<Cheese> cheeses, boolean isToasted) {
         this.bread = bread;
         this.size = size;
-        this.toppings = toppings;
+        this.toppings = toppings.stream().map(t -> (Topping) t).collect(Collectors.toList());
         this.meats = meats;
         this.sauces = sauces;
         this.cheeses = cheeses;
@@ -31,7 +33,7 @@ public class Sandwich implements IPriceable {
         return bread;
     }
 
-    public String getSize() {
+    public int getSize() {
         return size;
     }
 
@@ -57,46 +59,40 @@ public class Sandwich implements IPriceable {
 
     private double sandwichPriceSize() {
         switch (size) {
-            case "Mini":
+            case 1:
                 return 9.00;
-            case "Regular":
+            case 2:
                 return 15.00;
-            case "Giant":
+            case 3:
                 return 19.00;
             default:
-                return 15.00;
+                return 15.00; // Default price for "Regular"
         }
     }
 
     private double calculateRegularToppingPrice() {
-        List<RegularTopping> regularToppings = toppings.stream()
+        return toppings.stream()
                 .filter(topping -> topping instanceof RegularTopping)
-                .map(topping -> (RegularTopping) topping)
-                .collect(Collectors.toList());
-
-        return regularToppings.stream()
-                .mapToDouble(topping -> topping.calculatePrice(size))
+                .mapToDouble(topping -> topping.calculatePrice())
                 .sum();
     }
 
-    private double calculateNonRegularToppingPrice() {
+    private double calculatePremiumToppingPrice() {
         return toppings.stream()
                 .filter(topping -> !(topping instanceof RegularTopping))
-                .mapToDouble(topping -> topping.calculatePrice(size))
+                .mapToDouble(topping -> topping.calculatePrice())
                 .sum();
     }
 
     @Override
-    public double getPrice() {
-        double totalPrice = sandwichPriceSize();
+    public double calculatePrice() {
 
-        totalPrice += meats.stream().mapToDouble(meat -> meat.calculatePrice(size)).sum();
-        totalPrice += sauces.stream().mapToDouble(sauce -> sauce.calculatePrice(size)).sum();
-        totalPrice += cheeses.stream().mapToDouble(cheese -> cheese.calculatePrice(size)).sum();
-        totalPrice += calculateRegularToppingPrice();
-        totalPrice += calculateNonRegularToppingPrice();
-
-        return totalPrice;
+        return sandwichPriceSize()
+                + meats.stream().mapToDouble(meat -> meat.calculatePrice()).sum()
+                + sauces.stream().mapToDouble(sauce -> sauce.calculatePrice()).sum()
+                + cheeses.stream().mapToDouble(cheese -> cheese.calculatePrice()).sum()
+                + calculateRegularToppingPrice()
+                + calculatePremiumToppingPrice();
     }
 
     @Override
@@ -112,6 +108,7 @@ public class Sandwich implements IPriceable {
                 '}';
     }
 }
+
 
 
 

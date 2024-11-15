@@ -7,7 +7,7 @@ import java.util.Date;
 
 public class OrderFileManager {
 
-    public void saveReceipt(Order order) {
+    public static void saveReceipt(Order order) {
         String timestamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
         String filename = "receipt_" + timestamp + ".txt";
 

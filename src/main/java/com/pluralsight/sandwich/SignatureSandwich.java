@@ -34,12 +34,13 @@ public class SignatureSandwich extends Sandwich {
                 ", size=" + getSize() +
                 ", meats=" + getMeats() +
                 ", sauces=" + getSauces() +
-                ", regularToppings=" + getRegularToppings() +
+                //", regularToppings=" + getRegularToppings() + // FIXME: What
                 ", cheeses=" + getCheeses() +
                 ", isToasted=" + isToasted() +
                 '}';
     }
 }
+
 
 
 

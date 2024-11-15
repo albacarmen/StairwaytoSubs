@@ -3,12 +3,16 @@ package com.pluralsight.sandwich;
 public class RegularTopping extends Topping {
 
     public RegularTopping(String type) {
-        super(type);
+        super(type, 2);
+    }
+
+    public RegularTopping(String type, int size) {
+        super(type, size);
     }
 
     @Override
-    public double calculatePrice(int size) {
-        return 0; // No extra charge for regular toppings
+    public double calculatePrice() {
+        return 0.0; // No extra charge for regular toppings
     }
 }
 

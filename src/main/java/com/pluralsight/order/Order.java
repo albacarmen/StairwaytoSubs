@@ -1,7 +1,7 @@
 package com.pluralsight.order;
 
 import com.pluralsight.IPriceable.IPriceable;
-import java.math.BigDecimal;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -21,10 +21,10 @@ public class Order {
         items.remove(orderItem);
     }
 
-    public BigDecimal getTotalPrice() {
+    public double getTotalPrice() {
         return items.stream()
-                .map(IPriceable::calculatePrice)
-                .reduce(BigDecimal.ZERO, BigDecimal::add);
+                .mapToDouble(IPriceable::calculatePrice)
+                .sum();
     }
 
     public String getOrderSummary() {
@@ -36,14 +36,14 @@ public class Order {
     }
 
     public void finalizeOrder() {
-        String summary = getOrderSummary();
-        OrderFileManager.saveReceipt(summary);
+        OrderFileManager.saveReceipt(this); // Ensure OrderFileManager is implemented and imported
     }
 
     public List<IPriceable> getItems() {
         return items;
     }
 }
+
 
 
 
