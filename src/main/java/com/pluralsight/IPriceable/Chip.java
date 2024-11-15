@@ -21,7 +21,14 @@ public class Chip implements IPriceable {
 
     @Override
     public String toString() {
-        return type + " (" + getSizeString() + ")";
+        var text = new StringBuilder();
+
+        text.append("Chips:");
+        text.append("\n\tType: " + type);
+        text.append("\n\tSize: " + getSizeString());
+        text.append("\n");
+
+        return text.toString();
     }
 
     @Override
@@ -42,10 +49,17 @@ public class Chip implements IPriceable {
 
     private String getSizeString() {
         switch (size) {
-            case 1: return "Mini";
-            case 2: return "Regular";
-            case 3: return "Giant";
-            default: return "Regular";  // Default
+            case 1:
+                return "Mini";
+
+            case 2:
+                return "Regular";
+
+            case 3:
+                return "Giant";
+
+            default:
+                return "Invalid";  // Default
         }
     }
 }

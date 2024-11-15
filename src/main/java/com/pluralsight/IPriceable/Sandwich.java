@@ -134,7 +134,8 @@ public class Sandwich implements IPriceable {
         text.append(getToppingText("Toppings", toppings));
         text.append("\n\tIs toasted: " + isToasted);
         text.append("\n\n\tPrice: " + calculatePrice());
-
+        text.append("\n");
+        
         return text.toString();
     }
 }

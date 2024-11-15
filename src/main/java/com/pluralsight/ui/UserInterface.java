@@ -1,4 +1,5 @@
 package com.pluralsight.ui;
+import com.pluralsight.IPriceable.Chip;
 import com.pluralsight.IPriceable.Drink;
 import com.pluralsight.IPriceable.Sandwich;
 import com.pluralsight.order.Order;
@@ -8,8 +9,6 @@ import com.pluralsight.sandwich.Meat;
 import com.pluralsight.sandwich.RegularTopping;
 import com.pluralsight.sandwich.Sauce;
 
-import java.util.HashMap;
-import java.util.Map;
 import java.util.Scanner;
 import java.util.ArrayList;
 import java.util.List;
@@ -32,7 +31,9 @@ public class UserInterface {
         var running = true;
 
         while (running) {
-            displayHomeMenu();
+            System.out.println("\n1) New Order");
+            System.out.println("0) Exit");
+            System.out.print("Select an option: ");
 
             var choice = getUserInput();
 
@@ -46,10 +47,6 @@ public class UserInterface {
                     startNewOrder();
                     break;
 
-                case 2:
-                    selectSignatureSandwich();
-                    break;
-
                 default:
                     invalidChoiceMessage();
                     break;
@@ -61,13 +58,6 @@ public class UserInterface {
         System.out.println("Welcome to Stan Mikita's Subs – Party on, dude!");
         System.out.print("What's your name? ");
         customerName = scanner.nextLine();
-    }
-
-    private void displayHomeMenu() {
-        System.out.println("\n1) New Order");
-        System.out.println("2) Add Signature Sandwich"); // Added option for Signature Sandwich
-        System.out.println("0) Exit");
-        System.out.print("Select an option: ");
     }
 
     private int getUserInput() {
@@ -110,11 +100,11 @@ public class UserInterface {
                     break;
 
                 case 2:
-                    addDrinkScreen();  // Corrected method to add drink
+                    addDrink();
                     break;
 
                 case 3:
-                    chooseChips();
+                    addChips();
                     break;
 
                 case 4:
@@ -369,7 +359,7 @@ public class UserInterface {
         return selectedOptions;
     }
 
-    public void addDrinkScreen() {
+    public void addDrink() {
         System.out.println("\n** Add a Drink to Your Order **");
 
         var drink = chooseDrink();
@@ -409,31 +399,30 @@ public class UserInterface {
         return new Drink(type, size);  // Return the selected drink
     }
 
-    public String chooseChips() {
+    public void addChips() {
+
+        System.out.println("\n** Add chips to your order **");
+
+        var chips = chooseChips();
+
+        order.addItem(chips);
+
+        System.out.println("\nChips added to your order!");
+        System.out.println(chips);  // Display the drink details
+    }
+
+    public Chip chooseChips() {
         // Chip type options
-        System.out.println("SELECT YOUR CHIPS:");
-        System.out.println("1. Shrimp Chips");
-        System.out.println("2. Plantains");
-        System.out.println("PRESS '0' TO END SELECTION");
+        var type = selectOption("What kind of chips do you want?",
+                "Shrimp chips",
+                "Plantains");
+        var size = selectSize();
+        var chips = new Chip(type, size);
 
-        String chipChoice;
-        int typeChoice = scanner.nextInt();
-        scanner.nextLine();  // Clear the buffer
-
-        switch (typeChoice) {
-            case 1 -> chipChoice = "Shrimp Chips";
-            case 2 -> chipChoice = "Plantains";
-            default -> {
-                System.out.println("ERROR: Invalid Choice.");
-                chipChoice = "Shrimp Chips";  // Default to "Shrimp Chips"
-            }
-        }
-
-        return chipChoice;
+        return chips;
     }
 
     public void displayCheckoutScreen() {
-        System.out.println("Checkout Summary:\n");
         System.out.println(order);
 
         while (true) {

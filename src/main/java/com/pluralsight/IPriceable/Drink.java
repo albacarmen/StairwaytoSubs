@@ -22,7 +22,14 @@ public class Drink implements IPriceable {
 
     @Override
     public String toString() {
-        return flavor + " (" + getSizeString() + ")";
+        var text = new StringBuilder();
+
+        text.append("Drink:");
+        text.append("\n\tFlavor: " + flavor);
+        text.append("\n\tSize: " + getSizeString());
+        text.append("\n");
+
+        return text.toString();
     }
 
 
@@ -46,10 +53,17 @@ public class Drink implements IPriceable {
     // Get size as a string
     private String getSizeString() {
         switch (size) {
-            case 1: return "Mini";
-            case 2: return "Regular";
-            case 3: return "Giant";
-            default: return "Regular";  // Default
+            case 1:
+                return "Mini";
+
+            case 2:
+                return "Regular";
+
+            case 3:
+                return "Giant";
+
+            default:
+                return "Invalid";  // Default
         }
     }
 }
