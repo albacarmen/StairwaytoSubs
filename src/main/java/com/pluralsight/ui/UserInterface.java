@@ -75,12 +75,44 @@ public class UserInterface {
         System.out.println("Invalid choice. Try again!");
     }
 
-
-
     public void orderScreen() {
-        // Allow the user to start an order
-        System.out.println("Start your order here.");
-        // Implement the logic for selecting items
+        System.out.println("\nWelcome back, " + customerName + "! Start your order here.");
+
+        Map<Integer, Runnable> actions = new HashMap<>();
+        actions.put(1, this::addSandwichScreen);
+        actions.put(2, this::addDrinkScreen);
+        actions.put(3, this::addChipScreen);
+        actions.put(4, this::checkoutScreen);
+        actions.put(0, this::cancelOrder);
+
+        boolean ordering = true;
+        while (ordering) {
+            displayOrderMenu();
+            int choice = getUserInput();
+
+            Runnable action = actions.get(choice);
+            if (action != null) {
+                action.run();
+                if (choice == 4 || choice == 0) ordering = false; // End if checkout or cancel
+            } else {
+                invalidChoiceMessage();
+            }
+        }
+    }
+
+    private void displayOrderMenu() {
+        System.out.println("\nOrder Menu:");
+        System.out.println("1) Add Sandwich");
+        System.out.println("2) Add Drink");
+        System.out.println("3) Add Chips");
+        System.out.println("4) Checkout");
+        System.out.println("0) Cancel Order - Go back to home screen");
+        System.out.print("Select an option: ");
+    }
+
+    private void cancelOrder() {
+        this.order = null; // Clear current order
+        System.out.println("Order canceled. Returning to the home screen.");
     }
 
     public void addSandwichScreen() {
