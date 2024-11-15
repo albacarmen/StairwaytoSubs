@@ -13,7 +13,7 @@ public class Drink implements IPriceable {
             {2.00, 2.50, 3.00}, // Coca-Cola
     };
 
-    private static final String[] DRINK_FLAVORS = {"Coca-Cola", "Bubble Tea", "Horchata"};
+    private static final String[] DRINK_FLAVORS = { "Cokey", "Bubble Tea", "Horchata"};
 
     public Drink(String flavor, int size) {
         this.flavor = flavor;

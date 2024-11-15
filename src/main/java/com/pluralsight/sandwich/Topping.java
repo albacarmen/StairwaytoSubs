@@ -1,6 +1,8 @@
 package com.pluralsight.sandwich;
 
-public abstract class Topping {
+import com.pluralsight.IPriceable.IPriceable;
+
+public abstract class Topping implements IPriceable {
     protected String type;
     protected int size;
 
@@ -39,8 +41,6 @@ public abstract class Topping {
     public String getType() {
         return type;
     }
-
-    public abstract double calculatePrice(); // price based on size
 }
 
 

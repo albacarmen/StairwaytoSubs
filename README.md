@@ -1,73 +1,112 @@
-# Sandwich Shop Ordering Application
+# Stan Mikita's Subs - Sandwich Ordering Application
 
-## Description of the Project
+## Project Description
+![Designer_3.jpg](src%2Fmain%2Fresources%2FDesigner_3.jpg)
+Stan Mikita's Subs is a Java-based console application that provides a fun, customizable sandwich ordering experience. Inspired by **Wayne’s World** and infused with bold, diverse flavors from **Latin American** and **Asian** cuisine, the app enables customers to create personalized sandwich orders by selecting from a variety of ingredients. Users can choose between different bread types, meats, cheeses, toppings, and sauces, while also adding drinks and chips to complete their meal.
 
-This Java console application is designed to streamline the ordering process for a customizable sandwich shop. The application allows users to build a sandwich order by selecting various ingredients, including bread types, toppings, and sauces, and also add drinks and chips. This tool is intended for both customers of a virtual deli and backend administrators who want a seamless way to handle custom orders. The application's purpose is to simplify order management, ensure accurate pricing, and provide a receipt of the final order.
+Designed with both the customer and the administrator in mind, Stan Mikita's Subs streamlines the ordering process, provides accurate pricing, and generates a detailed receipt. The application is also designed to accommodate future enhancements, including delivery/pick-up options, nutritional information, discounts, and order history.
 
-![Untitled diagram-2024-11-14-024453.png](src%2Fmain%2Fresources%2FUntitled%20diagram-2024-11-14-024453.png)
+## Class Diagram
+![CLASSDIAGRAM.png](src%2Fmain%2Fresources%2FCLASSDIAGRAM.png)
+## Features
+
+- **Customizable Sandwiches**: Choose between different bread types, sizes, meats, cheeses, toppings, and sauces to craft your ideal sandwich.
+- **Toasted or Not Toasted**: Select whether you want your sandwich toasted to your liking.
+- **Add Drinks and Chips**: Complete your order with a selection of drinks and chips.
+- **Detailed Receipt**: Receive a comprehensive receipt with a breakdown of your order and prices.
+- **Order Cancellation**: Cancel your order at any time before finalizing it.
+
+## Additional Features
+
+- **Delivery & Pick-up Options**: Users can schedule orders for delivery or pick-up, with real-time tracking.
+- **Interactive Menu with Nutritional Info**: Display detailed nutritional information and allergen warnings for ingredients, helping health-conscious customers make informed choices.
+- **Discounts & Promotions**: Apply discounts or promotional offers to your order for additional savings.
+- **Order History**: Store and retrieve past orders from a file or database for repeat customers.
 
 ## User Stories
 
-- **As a user**, I want to have an option to place an order so that I can start choosing items to purchase.
-- **As a user**, I want to be able to pick between items like a sandwich, drink, and chips so that I can customize my order with the available options.
-- **As a user**, I want to have the ability to customize my sandwich by selecting bread type, adding meat, cheese, and other toppings, and choosing sauces so that I can create a sandwich to my taste.
-- **As a user**, I want the ability to get a receipt with the items so that I have a record of my order.
+- **As a user**, I want to start a new order so that I can begin selecting the items I want to purchase.
+- **As a user**, I want to choose between different menu items like sandwiches, drinks, and chips so that I can customize my order.
+- **As a user**, I want to customize my sandwich by selecting bread, meats, cheeses, toppings, and sauces to make a sandwich that suits my taste.
+- **As a user**, I want to choose whether or not my sandwich is toasted.
+- **As a user**, I want to add a drink and chips to my order.
+- **As a user**, I want to review my order before finalizing it.
+- **As a user**, I want to receive a detailed receipt after placing my order.
+- **As a user**, I want to be able to cancel my order if I change my mind.
 
-## Setup
-
-Instructions on how to set up and run the project using IntelliJ IDEA.
+## Setup Instructions
 
 ### Prerequisites
 
-- **IntelliJ IDEA**: Ensure you have IntelliJ IDEA installed, which you can download from [here](https://www.jetbrains.com/idea/download/).
-- **Java SDK**: Make sure Java SDK is installed and configured in IntelliJ. This project is compatible with Java 17 (or later).
+Before running the project, ensure that you have the following:
 
-### Running the Application in IntelliJ
+- **IntelliJ IDEA**: You can download it [here](https://www.jetbrains.com/idea/download/).
+- **Java SDK**: Make sure Java 17 (or later) is installed and configured in IntelliJ IDEA.
 
-Follow these steps to get your application running within IntelliJ IDEA:
+### Running the Application
 
-1. Open **IntelliJ IDEA**.
-2. Select **"Open"** and navigate to the directory where you cloned or downloaded the project.
-3. After the project opens, IntelliJ will automatically index the files and set up the project.
-4. Locate the main class with the `public static void main(String[] args)` method. This class is typically located in the `main` package.
-5. Right-click on the file and select **'Run `Main.main()`'** to start the application.
+Follow these steps to get the project running in IntelliJ IDEA:
+
+1. **Open IntelliJ IDEA** and select **"Open"** to navigate to the directory where you cloned or downloaded the project.
+2. IntelliJ will automatically index the files and set up the project.
+3. Locate the **Main class** with the `public static void main(String[] args)` method, typically found in the `main` package.
+4. **Right-click** on the Main class file and select **'Run `Main.main()`'** to start the application.
 
 ## Technologies Used
 
 - **Java**: Version 17 (or later)
-- **IntelliJ IDEA**: For development and execution.
-- **JUnit** (optional, if tests are included): For unit testing.
+- **IntelliJ IDEA**: Development and execution environment
+- **JUnit** (optional): For unit testing, if included
 
 ## Demo
 
 ### Application Screenshot
 
-![Application Screenshot](path/to/your/screenshot.png)
+*ORDERSCREEN*
+![ORDERSCREEN.PNG](src%2Fmain%2Fresources%2FORDERSCREEN.PNG)
 
-> Provide a screenshot here to show the user interface or a terminal output of the application in action.
+*TOPPINGS*
+![TOPPINGS.PNG](src%2Fmain%2Fresources%2FTOPPINGS.PNG)
+
+*SELECT MEATS*
+![SELECT MEATS.PNG](src%2Fmain%2Fresources%2FSELECT%20MEATS.PNG)
+
+*ORDER SUMMARY*
+![ORDERSUMMARY.PNG](src%2Fmain%2Fresources%2FORDERSUMMARY.PNG)
+
+*CANCELING ORDER*
+![CANCELING ORDER.PNG](src%2Fmain%2Fresources%2FCANCELING%20ORDER.PNG)
 
 ## Future Work
 
-Outline potential future enhancements or functionalities you might consider adding:
+### Planned Enhancements
 
-- **GUI Implementation**: Expand the console-based application into a graphical user interface using JavaFX or Swing.
-- **Discounts and Promotions**: Include functionality for applying discounts or promotional offers to orders.
-- **Order History**: Add functionality to store and retrieve past orders from a file or database for repeat customers.
-- **Customization Options**: Provide more options for customizing toppings, bread, and sauces to allow for even more personalization.
-- **Payment Integration**: Integrate a payment gateway to simulate real-world transactions.
+- **Delivery and Pick-up Options**:
+    - Add functionality for users to schedule their orders for delivery or pick-up.
+    - Include real-time tracking for orders.
+
+- **Interactive Menu with Nutritional Info**:
+    - Display detailed nutritional information and allergen alerts for each ingredient.
+    - Empower health-conscious customers to make informed decisions about their orders.
+
+- **Discounts and Promotions**:
+    - Add functionality to apply discounts or promotional offers to orders, allowing customers to save on their purchases.
+
+- **Order History**:
+    - Implement functionality to store and retrieve past orders for repeat customers.
+    - Optionally, integrate with a file or database system to keep track of orders across sessions.
 
 ## Resources
 
-List resources such as tutorials, articles, or documentation that helped you during the project.
+Here are some helpful resources that assisted with the development of the project:
 
 - [Java Programming Tutorial](https://www.example.com)
 - [Effective Java](https://www.example.com)
 
-## Thanks
+## Acknowledgments
 
-Express gratitude toward those who provided help, guidance, or resources:
+Special thanks to the following individuals and communities:
 
-- Thank you to **Raymond** for continuous support and guidance.
-- A special thanks to **all teammates** for their dedication and teamwork.
-- Thanks to **Stack Overflow**, **Oracle Documentation**, and other online communities for solving issues and providing coding solutions.
-
+- **Raymond** for providing continuous support and guidance.
+- Thanks to **all teammates** for their dedication and teamwork.
+- A big thank you to **Stack Overflow**, **Oracle Documentation**, and other online communities for solving coding issues and offering solutions.

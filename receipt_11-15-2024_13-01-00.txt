@@ -1,0 +1,21 @@
+Order Summary:
+
+Sandwich:
+	Bread: Bolillo Bread
+	Size: Giant
+	Meats:
+		Regular Carnitas
+	Cheeses:
+		Regular Mozzarella
+	Sauces:
+		Regular Sriracha
+		Regular Cilantro Lime Crema
+	Toppings:
+		Regular Pickled Jalapenos
+		Regular Cucumber Slices
+		Regular Pineapple
+	Is toasted: true
+
+	Price: $25.25
+
+Total: $25.25

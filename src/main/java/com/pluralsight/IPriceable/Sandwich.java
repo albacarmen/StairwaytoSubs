@@ -82,20 +82,6 @@ public abstract class Sandwich implements IPriceable {
         }
     }
 
-    private double calculateRegularToppingPrice() {
-        return toppings.stream()
-                .filter(topping -> topping instanceof RegularTopping)
-                .mapToDouble(topping -> topping.calculatePrice())
-                .sum();
-    }
-
-    private double calculatePremiumToppingPrice() {
-        return toppings.stream()
-                .filter(topping -> !(topping instanceof RegularTopping))
-                .mapToDouble(topping -> topping.calculatePrice())
-                .sum();
-    }
-
     @Override
     public double calculatePrice() {
 
@@ -103,9 +89,8 @@ public abstract class Sandwich implements IPriceable {
                 + bread.calculatePrice()
                 + meats.stream().mapToDouble(meat -> meat.calculatePrice()).sum()
                 + sauces.stream().mapToDouble(sauce -> sauce.calculatePrice()).sum()
-                + cheeses.stream().mapToDouble(cheese -> cheese.calculatePrice()).sum()
-                + calculateRegularToppingPrice()
-                + calculatePremiumToppingPrice();
+                + toppings.stream().mapToDouble(topping -> topping.calculatePrice()).sum()
+                + cheeses.stream().mapToDouble(cheese -> cheese.calculatePrice()).sum();
     }
 
     private static <T> String getToppingText(String title, List<T> toppings) {
@@ -124,7 +109,7 @@ public abstract class Sandwich implements IPriceable {
 
         text.append("Sandwich:");
         text.append("\n\tBread: " + bread);
-        text.append("\n\tSize: " + getSizeText());
+        text.append("\n\tSize: " + getSizeText() + ": +$" + sandwichPriceSize());
         text.append(getToppingText("Meats", meats));
         text.append(getToppingText("Cheeses", cheeses));
         text.append(getToppingText("Sauces", sauces));

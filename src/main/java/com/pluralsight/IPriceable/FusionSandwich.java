@@ -16,9 +16,4 @@ public class FusionSandwich extends Sandwich {
             true
         );
     }
-
-    @Override
-    public double calculatePrice() {
-        return super.calculatePrice() + 4.0;
-    }
 }

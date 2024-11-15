@@ -1,0 +1,53 @@
+Order Summary:
+
+Sandwich:
+	Bread: Telera Bread
+	Size: Mini: +$9.0
+	Meats:
+		Regular Carnitas: +$2.0
+		Regular Korean BBQ Beef: +$4.0
+		Regular Grilled Chicken with Chipotle: +$1.0
+	Cheeses:
+		Regular Mozzarella: +$2.0
+		Regular Kimchi Cheddar: +$3.0
+	Sauces:
+		Regular Chipotle Mayo
+		Regular Sriracha
+		Regular Hoisin Sauce
+	Toppings:
+		Regular Avocado
+		Regular Pineapple
+		Regular Kimchi
+	Is toasted: true
+
+	Price: $21.0
+
+Sandwich:
+	Bread: Bolillo Bread
+	Size: Giant: +$19.0
+	Meats:
+		Regular Carnitas: +$2.0
+	Cheeses:
+		Regular Mozzarella: +$2.0
+	Sauces:
+		Regular Sriracha
+		Regular Cilantro Lime Crema
+	Toppings:
+		Regular Pickled Jalapenos
+		Regular Cucumber Slices
+		Regular Pineapple
+	Is toasted: true
+
+	Price: $23.0
+
+Chips:
+	Type: Shrimp chips
+	Size: Giant
+	Price: $5.25
+
+Drink:
+	Flavor: Coke
+	Size: Giant
+	Price: $0.0
+
+Total: $49.25

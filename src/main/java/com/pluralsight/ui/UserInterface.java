@@ -276,7 +276,7 @@ public class UserInterface {
         );
 
         var meats = meatTexts.stream()
-                .map(meatText -> new Meat(meatText, 2))
+                .map(meatText -> new Meat(meatText))
                 .collect(Collectors.toList());
 
         return meats;
