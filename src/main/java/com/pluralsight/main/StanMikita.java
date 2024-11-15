@@ -7,7 +7,7 @@ import com.pluralsight.ui.UserInterface;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class Stairway {
+public class StanMikita {
 
     public static void main(String[] args) {
 
