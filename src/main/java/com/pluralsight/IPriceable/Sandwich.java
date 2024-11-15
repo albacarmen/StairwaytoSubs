@@ -37,6 +37,22 @@ public class Sandwich implements IPriceable {
         return size;
     }
 
+    public String getSizeText() {
+        switch (size) {
+            case 1:
+                return "Mini";
+
+            case 2:
+                return "Regular";
+
+            case 3:
+                return "Giant";
+
+            default:
+                return "Invalid";
+        }
+    }
+
     public List<Topping> getToppings() {
         return toppings;
     }
@@ -95,17 +111,31 @@ public class Sandwich implements IPriceable {
                 + calculatePremiumToppingPrice();
     }
 
+    private static <T> String getToppingText(String title, List<T> toppings) {
+        var text = "\n\t" + title + ":";
+
+        for (var topping : toppings) {
+            text += "\n\t\t" + topping;
+        }
+
+        return text;
+    }
+
     @Override
     public String toString() {
-        return "Sandwich{" +
-                "bread='" + bread + '\'' +
-                ", size='" + size + '\'' +
-                ", meats=" + meats +
-                ", sauces=" + sauces +
-                ", cheeses=" + cheeses +
-                ", toppings=" + toppings +
-                ", isToasted=" + isToasted +
-                '}';
+        var text = new StringBuilder();
+
+        text.append("Sandwich:");
+        text.append("\n\tBread: " + bread);
+        text.append("\n\tSize: " + getSizeText());
+        text.append(getToppingText("Meats", meats));
+        text.append(getToppingText("Cheeses", cheeses));
+        text.append(getToppingText("Sauces", sauces));
+        text.append(getToppingText("Toppings", toppings));
+        text.append("\n\tIs toasted: " + isToasted);
+        text.append("\n\n\tPrice: " + calculatePrice());
+
+        return text.toString();
     }
 }
 

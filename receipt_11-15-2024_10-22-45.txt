@@ -1,0 +1,18 @@
+Order Summary:
+Sandwich:
+	Bread: Telera
+	Size: Regular
+	Meats:
+	Cheeses:
+		Regular Queso Fresco
+	Sauces:
+		Regular Chipotle Mayo
+		Regular Sriracha
+		Regular Hoisin Sauce
+	Toppings:
+		Regular Avocado
+		Regular Pineapple
+		Regular Kimchi
+	Is toasted: true
+ - $15.75
+Total: $15.75

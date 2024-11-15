@@ -13,6 +13,29 @@ public abstract class Topping {
         this.size = size;
     }
 
+    public String getSizeText() {
+        switch (size) {
+            case 1:
+                return "Light";
+
+            case 2:
+                return "Regular";
+
+            case 3:
+                return "Extra";
+
+            default:
+                return "Invalid";
+        }
+    }
+
+    @Override
+    public String toString() {
+        var sizeText = getSizeText();
+
+        return sizeText + " " + type;
+    }
+
     public String getType() {
         return type;
     }

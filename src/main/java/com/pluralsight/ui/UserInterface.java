@@ -433,7 +433,7 @@ public class UserInterface {
     }
 
     public void displayCheckoutScreen() {
-        System.out.println("Checkout Summary:");
+        System.out.println("Checkout Summary:\n");
         System.out.println(order);
 
         while (true) {

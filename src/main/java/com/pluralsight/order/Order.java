@@ -29,10 +29,10 @@ public class Order {
 
     public String toString() {
         String itemsSummary = items.stream()
-                .map(orderItem -> orderItem.toString() + " - $" + orderItem.calculatePrice())
-                .collect(Collectors.joining("\n"));
+                .map(orderItem -> orderItem.toString())
+                .collect(Collectors.joining("\n\n"));
 
-        return "Order Summary:\n" + itemsSummary + "\nTotal: $" + getTotalPrice();
+        return "Order Summary:\n\n" + itemsSummary + "\n\nTotal: $" + getTotalPrice();
     }
 
     public List<IPriceable> getItems() {
