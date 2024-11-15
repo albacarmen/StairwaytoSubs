@@ -3,7 +3,7 @@ package com.pluralsight.IPriceable;
 import java.math.BigDecimal;
 
 public class Chips implements IPriceable {
-    private String type;  // "Shrimp Chips", "Plantains"
+    private String type;  // "Shrimp Chips" (Asian), "Plantains" (Latin American)
     private int size;     // 1: Mini, 2: Regular, 3: Giant
 
     // Price mapping for different chip types and sizes
@@ -25,13 +25,12 @@ public class Chips implements IPriceable {
     }
 
     @Override
-    public BigDecimal getPrice() {
+    public BigDecimal calculatePrice() {
         int typeIndex = getTypeIndex(type);
-        if (typeIndex == -1) return BigDecimal.ZERO;  // Default for unknown type
-        return CHIP_PRICES[typeIndex][size - 1];  // Get price based on type and size
+        if (typeIndex == -1) return BigDecimal.ZERO;
+        return CHIP_PRICES[typeIndex][size - 1];
     }
 
-    // Get index of the chip type
     private int getTypeIndex(String type) {
         for (int i = 0; i < CHIP_TYPES.length; i++) {
             if (CHIP_TYPES[i].equalsIgnoreCase(type)) {
@@ -41,7 +40,6 @@ public class Chips implements IPriceable {
         return -1;  
     }
 
-    // Get size as a string
     private String getSizeString() {
         switch (size) {
             case 1: return "Mini";
@@ -51,6 +49,7 @@ public class Chips implements IPriceable {
         }
     }
 }
+
 
 
 
