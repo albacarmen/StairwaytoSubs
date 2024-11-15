@@ -11,6 +11,7 @@ public abstract class Topping {
         return type;
     }
 
-    public abstract double calculatePrice(int size);
+    public abstract double calculatePrice(int size); // price based on size
 }
+
 
