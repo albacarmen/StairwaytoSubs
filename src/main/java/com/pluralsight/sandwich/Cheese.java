@@ -7,10 +7,19 @@ public class Cheese extends PremiumTopping {
     }
 
     @Override
-    public double calculatePrice(int size) {
-        // Price calculation based on the size of the sandwich
-        return 0.75 * (size / 4.0);
+    public double calculatePrice(String size) {
+        switch (size) {
+            case "Mini":
+                return 0.50;  // Small topping 4 Mini
+            case "Regular":
+                return 0.75;  // Standard topping 4 Regular
+            case "Giant":
+                return 1.00;  // Larger topping 4 Giant
+            default:
+                return 0.75;  // Default price
+        }
     }
 }
+
 
 
