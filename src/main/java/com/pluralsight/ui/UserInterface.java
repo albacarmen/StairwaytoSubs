@@ -100,20 +100,55 @@ public class UserInterface {
         }
     }
 
-    private void displayOrderMenu() {
-        System.out.println("\nOrder Menu:");
-        System.out.println("1) Add Sandwich");
-        System.out.println("2) Add Drink");
-        System.out.println("3) Add Chips");
-        System.out.println("4) Checkout");
-        System.out.println("0) Cancel Order - Go back to home screen");
-        System.out.print("Select an option: ");
+    public void orderScreen() {
+        boolean continueOrder = true;
+
+        while (continueOrder) {
+            System.out.println("\nSTAN MIKITA'S ORDER SCREEN:");
+            System.out.println("1. Build Your Epic Sandwich");
+            System.out.println("2. Pick a Flavorful Drink");
+            System.out.println("3. Add Crispy Chips");
+            System.out.println("4. Checkout, already?");
+            System.out.println("5. Cancel Your Order (Abort Mission)");
+            System.out.print("What's your next move? ");
+
+            int choice = scanner.nextInt();
+            scanner.nextLine();
+
+            switch (choice) {
+                case 1 -> {
+                    addSandwich();
+                    System.out.println("Whoa, you're crafting a masterpiece with some awesome toppings!");
+                }
+                case 2 -> {
+                    currentOrder.addDrink(chooseDrink());
+                    System.out.println("Sweet! You picked a drink to wash down your sandwich. Nice choice.");
+                }
+                case 3 -> {
+                    currentOrder.addChips(chooseChips());
+                    System.out.println("Crunch time! Chips added to your order, bringing the crunch factor.");
+                }
+                case 4 -> {
+                    checkoutScreen();
+                    continueOrder = false;
+                }
+                case 5 -> {
+                    cancelOrder();
+                    continueOrder = false;
+                }
+                default -> System.out.println("Oops! Not a valid choice. Try again, dude!");
+            }
+        }
     }
 
-    private void cancelOrder() {
-        this.order = null; // Clear current order
-        System.out.println("Order canceled. Returning to the home screen.");
+    public void cancelOrder() {
+        System.out.println("\nWhoa, looks like you're bailing on the order. Are you sure you want to cancel?");
+        System.out.println("Your epic sandwich journey will end here, bro.");
+        System.out.println("Party on! Order canceled.");
+        // Optionally, reset or clear the current order if necessary
+        currentOrder = null;  // Clear the order if needed
     }
+
 
     public void addSandwichScreen() {
         // Allow user to customize and add a sandwich
