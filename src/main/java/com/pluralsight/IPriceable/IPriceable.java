@@ -1,4 +1,9 @@
+package com.pluralsight.IPriceable;
+
+import java.math.BigDecimal;
+
 public interface IPriceable {
-    double getPrice();
+    BigDecimal calculatePrice();
 }
+
 

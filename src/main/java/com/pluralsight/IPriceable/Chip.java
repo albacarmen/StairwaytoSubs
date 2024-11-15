@@ -6,7 +6,7 @@ public class Chip implements IPriceable {
     private String type;  // "Shrimp Chips" (Asian), "Plantains" (Latin American)
     private int size;     // 1: Mini, 2: Regular, 3: Giant
 
-    // Price mapping 
+    // Price mapping
     private static final BigDecimal[][] CHIP_PRICES = {
             {new BigDecimal("1.75"), new BigDecimal("3.50"), new BigDecimal("5.25")}, // Shrimp Chips
             {new BigDecimal("1.50"), new BigDecimal("3.00"), new BigDecimal("4.50")}, // Plantains
