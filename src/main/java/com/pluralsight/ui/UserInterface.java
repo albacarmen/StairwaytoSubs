@@ -1,7 +1,8 @@
 package com.pluralsight.ui;
 
 import com.pluralsight.order.Order;
-
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Scanner;
 
 public class UserInterface {
@@ -14,25 +15,27 @@ public class UserInterface {
         this.scanner = new Scanner(System.in);
     }
 
-    // Start the interface with customer greeting
+    // customer greeting
+
+
     public void homeScreen() {
         greetCustomer();
+
+        Map<Integer, Runnable> actions = new HashMap<>();
+        actions.put(1, this::startNewOrder);
+        actions.put(0, this::exitApplication);
 
         boolean running = true;
         while (running) {
             displayHomeMenu();
             int choice = getUserInput();
 
-            switch (choice) {
-                case 1:
-                    startNewOrder();
-                    break;
-                case 0:
-                    exitApplication();
-                    running = false;
-                    break;
-                default:
-                    invalidChoiceMessage();
+            Runnable action = actions.get(choice);
+            if (action != null) {
+                action.run();
+                if (choice == 0) running = false; // Stop loop if exiting
+            } else {
+                invalidChoiceMessage();
             }
         }
     }
@@ -71,6 +74,7 @@ public class UserInterface {
     private void invalidChoiceMessage() {
         System.out.println("Invalid choice. Try again!");
     }
+
 
 
     public void orderScreen() {
