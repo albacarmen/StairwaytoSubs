@@ -29,22 +29,30 @@ public class UserInterface {
     public void homeScreen() {
         greetCustomer();
 
-        Map<Integer, Runnable> actions = new HashMap<>();
-        actions.put(1, this::startNewOrder);
-        actions.put(2, this::selectSignatureSandwich); // Added Signature Sandwich option
-        actions.put(0, this::exitApplication);
+        var running = true;
 
-        boolean running = true;
         while (running) {
             displayHomeMenu();
-            int choice = getUserInput();
 
-            Runnable action = actions.get(choice);
-            if (action != null) {
-                action.run();
-                if (choice == 0) running = false; // Stop loop if exiting
-            } else {
-                invalidChoiceMessage();
+            var choice = getUserInput();
+
+            switch (choice) {
+                case 0:
+                    System.out.println("Party On, " + customerName + "!");
+                    running = false;
+                    break;
+
+                case 1:
+                    startNewOrder();
+                    break;
+
+                case 2:
+                    selectSignatureSandwich();
+                    break;
+
+                default:
+                    invalidChoiceMessage();
+                    break;
             }
         }
     }
@@ -77,41 +85,12 @@ public class UserInterface {
         displayOrderScreen(); // Navigate to the order screen
     }
 
-    private void exitApplication() {
-        System.out.println("Party On, " + customerName + "!");
-    }
-
     private void invalidChoiceMessage() {
         System.out.println("Invalid choice. Try again!");
     }
 
-    public void start() {
-        System.out.println("\nWelcome back, " + customerName + "! Start your order here.");
-
-        Map<Integer, Runnable> actions = new HashMap<>();
-        actions.put(1, this::addSandwich);
-        actions.put(2, this::addDrinkScreen);
-        actions.put(3, this::chooseChips);
-        actions.put(4, this::displayCheckoutScreen);
-        actions.put(0, this::cancelOrder);
-
-        boolean ordering = true;
-        while (ordering) {
-            displayOrderScreen();
-            int choice = getUserInput();
-
-            Runnable action = actions.get(choice);
-            if (action != null) {
-                action.run();
-                if (choice == 4 || choice == 0) ordering = false; // End if checkout or cancel
-            } else {
-                invalidChoiceMessage();
-            }
-        }
-    }
-
     public void displayOrderScreen() {
-        boolean continueOrder = true;
+        var continueOrder = true;
 
         while (continueOrder) {
             System.out.println("\nSTAN MIKITA'S ORDER SCREEN:");
@@ -123,16 +102,38 @@ public class UserInterface {
             System.out.println("6. Add Signature Sandwich"); // Added option for Signature Sandwich
             System.out.print("What's your next move? ");
 
-            int choice = getUserInput();  // Reusing the getUserInput method for consistency.
+            var choice = getUserInput();  // Reusing the getUserInput method for consistency.
 
             switch (choice) {
-                case 1 -> addSandwich();
-                case 2 -> addDrinkScreen();  // Corrected method to add drink
-                case 3 -> chooseChips();
-                case 4 -> displayCheckoutScreen();
-                case 5 -> cancelOrder();
-                case 6 -> selectSignatureSandwich();  // Add Signature Sandwich
-                default -> invalidChoiceMessage();
+                case 1:
+                    addSandwich();
+                    break;
+
+                case 2:
+                    addDrinkScreen();  // Corrected method to add drink
+                    break;
+
+                case 3:
+                    chooseChips();
+                    break;
+
+                case 4:
+                    displayCheckoutScreen();
+                    continueOrder = false;
+                    break;
+
+                case 5:
+                    cancelOrder();
+                    continueOrder = false;
+                    break;
+
+                case 6:
+                    selectSignatureSandwich();  // Add Signature Sandwich
+                    break;
+
+                default:
+                    invalidChoiceMessage();
+                    break;
             }
         }
     }
@@ -259,9 +260,9 @@ public class UserInterface {
     private List<Meat> selectMeats() {
         var meatTexts = selectMultipleOptions(
                 "Select Your Meats (you can select multiple):",
-                "Carnitas (Latin American)",
+                "Carnitas",
                 "Korean BBQ Beef",
-                "Grilled Chicken with Chipotle (Latin Fusion)",
+                "Grilled Chicken with Chipotle",
                 "Teriyaki Pork",
                 "None"
         );
@@ -310,10 +311,10 @@ public class UserInterface {
     private List<Sauce> selectSauces() {
         var types = selectMultipleOptions(
                 "Select Your Sauces (you can select multiple):",
-                "Chipotle Mayo (Latin American Fusion)",
+                "Chipotle Mayo",
                 "Sriracha",
                 "Hoisin Sauce",
-                "Cilantro Lime Crema (Latin Fusion)",
+                "Cilantro Lime Crema",
                 "Miso Mayo",
                 "None"
         );
@@ -433,23 +434,22 @@ public class UserInterface {
 
     public void displayCheckoutScreen() {
         System.out.println("Checkout Summary:");
-        String orderSummary = order.getOrderSummary();
-        System.out.println(orderSummary);
+        System.out.println(order);
 
-        System.out.print("Confirm Order? (Y or N): ");
-        String confirm = scanner.nextLine().trim().toLowerCase();
+        while (true) {
+            System.out.print("Confirm Order? (Y or N): ");
+            String confirm = scanner.nextLine().trim().toLowerCase();
 
-        if (confirm.equalsIgnoreCase("y")) {
-            OrderFileManager.saveReceipt(order);
-            System.out.println("Thank you for your order, " + customerName + "!");
-            System.out.println("Party on, " + customerName + "!");
-            displayHomeMenu();
-        } else if (confirm.equalsIgnoreCase("n")) {
-            System.out.println("Order Canceled. No Worries.");
-            displayOrderScreen();
-        } else {
-            System.out.println("ERROR: Invalid Choice.");
-            displayCheckoutScreen();
+            if (confirm.equalsIgnoreCase("y")) {
+                OrderFileManager.saveReceipt(order);
+                System.out.println("Thank you for your order! Party on, " + customerName + "!");
+                break;
+            } else if (confirm.equalsIgnoreCase("n")) {
+                System.out.println("Order Canceled. No Worries.");
+                break;
+            } else {
+                System.out.println("ERROR: Invalid Choice.");
+            }
         }
     }
 }

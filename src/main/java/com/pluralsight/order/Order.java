@@ -27,16 +27,12 @@ public class Order {
                 .sum();
     }
 
-    public String getOrderSummary() {
+    public String toString() {
         String itemsSummary = items.stream()
                 .map(orderItem -> orderItem.toString() + " - $" + orderItem.calculatePrice())
                 .collect(Collectors.joining("\n"));
 
         return "Order Summary:\n" + itemsSummary + "\nTotal: $" + getTotalPrice();
-    }
-
-    public void finalizeOrder() {
-        OrderFileManager.saveReceipt(this); // Ensure OrderFileManager is implemented and imported
     }
 
     public List<IPriceable> getItems() {

@@ -1,0 +1,4 @@
+Order Summary:
+Sandwich{bread='Telera', size='2', meats=[com.pluralsight.sandwich.Meat@1d56ce6a], sauces=[com.pluralsight.sandwich.Sauce@5197848c], cheeses=[com.pluralsight.sandwich.Cheese@17f052a3], toppings=[com.pluralsight.sandwich.RegularTopping@2e0fa5d3], isToasted=true} - $17.25
+Total: $17.25
+Total: 17.25
