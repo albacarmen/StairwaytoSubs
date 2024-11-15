@@ -7,9 +7,18 @@ public class Meat extends PremiumTopping {
     }
 
     @Override
-    public double calculatePrice(int size) {
-        // logic for meat
-        return 2.0 * size; // higher price based on size
+    public double calculatePrice(String size) {
+        switch (size) {
+            case "Mini":
+                return 1.00;  // small topping
+            case "Regular":
+                return 1.50;  // standard topping
+            case "Giant":
+                return 2.00;  // larger topping
+            default:
+                return 1.50;  // Default price
+        }
     }
 }
+
 
