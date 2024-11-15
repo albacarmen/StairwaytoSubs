@@ -1,0 +1,25 @@
+Order Summary:
+
+Sandwich:
+	Bread: Telera Bread
+	Size: Giant: +$19.0
+	Meats:
+		Regular Carnitas: +$2.0
+	Cheeses:
+		Regular Queso Fresco: +$1.5
+		Regular Mozzarella: +$2.0
+		Regular Kimchi Cheddar: +$3.0
+	Sauces:
+		Regular Chipotle Mayo
+		Regular Cilantro Lime Crema
+		Regular Sriracha
+	Toppings:
+		Regular Avocado
+		Regular Pineapple
+		Regular Kimchi
+		Regular Pickled Jalapenos
+	Is toasted: true
+
+	Price: $27.5
+
+Total: $27.5

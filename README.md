@@ -7,7 +7,7 @@ Stan Mikita's Subs is a Java-based console application that provides a fun, cust
 Designed with both the customer and the administrator in mind, Stan Mikita's Subs streamlines the ordering process, provides accurate pricing, and generates a detailed receipt. The application is also designed to accommodate future enhancements, including delivery/pick-up options, nutritional information, discounts, and order history.
 
 ## Class Diagram
-![CLASSDIAGRAM.png](src%2Fmain%2Fresources%2FCLASSDIAGRAM.png)
+![UPDATED CLASS DIAGRAM.png](src%2Fmain%2Fresources%2FUPDATED%20CLASS%20DIAGRAM.png)
 ## Features
 
 - **Customizable Sandwiches**: Choose between different bread types, sizes, meats, cheeses, toppings, and sauces to craft your ideal sandwich.
