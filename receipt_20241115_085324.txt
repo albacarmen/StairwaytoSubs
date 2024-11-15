@@ -1,0 +1,2 @@
+com.pluralsight.order.Order@5a2e4553
+Total: 24.25
