@@ -1,21 +1,30 @@
-package com.pluralsight.IPriceable;
+package IPriceable;
+
+import com.pluralsight.sandwich.Cheese;
+import com.pluralsight.sandwich.Sauces;
+import com.pluralsight.sandwich.Meat;
+import com.pluralsight.sandwich.RegularTopping;
+import com.pluralsight.sandwich.Sauces;
 
 import java.util.List;
-
-import com.pluralsight.sandwich.Topping;
-
-
 
 public class Sandwich implements IPriceable {
     private String bread;
     private int size;
-    private List<Topping> toppings;
+    private List<Meat> meats;
+    private List<Sauces> sauces;
+    private List<RegularTopping> regularToppings;
+    private List<Cheese> cheeses;
     private boolean isToasted;
 
-    public Sandwich(String bread, int size, List<Topping> toppings, boolean isToasted) {
+    public Sandwich(String bread, int size, List<Meat> meats, List<Sauce> sauces,
+                    List<RegularTopping> regularToppings, List<Cheese> cheeses, boolean isToasted) {
         this.bread = bread;
         this.size = size;
-        this.toppings = toppings;
+        this.meats = meats;
+        this.sauces = sauces;
+        this.regularToppings = regularToppings;
+        this.cheeses = cheeses;
         this.isToasted = isToasted;
     }
 
@@ -27,18 +36,31 @@ public class Sandwich implements IPriceable {
         return size;
     }
 
-    public List<Topping> getToppings() {
-        return toppings;
+    public List<Meat> getMeats() {
+        return meats;
+    }
+
+    public List<Sauce> getSauces() {
+        return sauces;
+    }
+
+    public List<RegularTopping> getRegularToppings() {
+        return regularToppings;
+    }
+
+    public List<Cheese> getCheeses() {
+        return cheeses;
     }
 
     public boolean isToasted() {
         return isToasted;
     }
+}
 
     @Override
     public double getPrice() {
 
-        double price = 5.0; // base price
+        double price = 19.0; // base price
         for (Topping topping : toppings) {
             price += topping.calculatePrice(size);
         }
