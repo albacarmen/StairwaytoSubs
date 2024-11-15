@@ -1,0 +1,24 @@
+Order Summary:
+
+Sandwich:
+	Bread: Telera Bread
+	Size: Giant: +$19.0
+	Meats:
+		Regular Teriyaki Pork: +$2.5
+	Cheeses:
+		Regular Kimchi Cheddar: +$3.0
+	Sauces:
+		Regular Chipotle Mayo
+		Regular Sriracha
+		Regular Miso Mayo
+	Toppings:
+		Regular Avocado
+		Regular Pineapple
+		Regular Kimchi
+		Regular Pickled Jalapenos
+		Regular Cucumber Slices
+	Is toasted: true
+
+	Price: $24.5
+
+Total: $24.5
