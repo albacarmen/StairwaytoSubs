@@ -7,8 +7,8 @@ public class RegularTopping extends Topping {
     }
 
     @Override
-    public double calculatePrice(String size) {
-        return 0.00;  // No extra charge for regular toppings
+    public double calculatePrice(int size) {
+        return 0; // No extra charge for regular toppings
     }
 }
 
